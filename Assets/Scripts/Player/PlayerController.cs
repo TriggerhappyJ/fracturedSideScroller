@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
     // Variables for checking player state
     private bool isFalling;
     private bool isJumping;
+    private bool isFacingRight;
 
     // Jump Checking
     [SerializeField] private LayerMask groundLayer;
@@ -33,12 +35,22 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private bool doubleJumped;
 
-    // Start is called before the first frame update
-    private void Start()
+    // Recording Variables
+    private Recorder recorder;
+
+    // Called when player is activated
+    private void Awake()
     {
+        recorder = GetComponent<Recorder>();
         rbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         coll2D = GetComponent<CapsuleCollider2D>();
+    }
+
+    // Start is called before the first frame update
+    private void Start()
+    {
+        
     }
 
     // Update is called once per frame
@@ -111,6 +123,13 @@ public class PlayerController : MonoBehaviour
         rbody.velocity = new Vector2(moveX * moveSpeed, rbody.velocity.y);
     }
 
+    private void LateUpdate()
+    {
+        // Record replay data for the frame
+        ReplayData data = new PlayerReplayData(this.transform.position, isFalling, IsGrounded(), moveX != 0, isFacingRight);
+        recorder.RecordReplayFrame(data);
+    }
+
     private void Jump()
     {
         rbody.velocity = new Vector2(rbody.velocity.x, jumpForce);
@@ -134,10 +153,12 @@ public class PlayerController : MonoBehaviour
         if (moveX >= 0.1)
         {
             transform.localScale = Vector3.one;
+            isFacingRight = true;
         }
         else if (moveX <= -0.1)
         {
             transform.localScale = new Vector3(-1, 1, 1);
+            isFacingRight = false;
         }
     }
 
