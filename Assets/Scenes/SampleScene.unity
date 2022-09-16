@@ -1563,6 +1563,7 @@ GameObject:
   - component: {fileID: 1224060544}
   - component: {fileID: 1224060548}
   - component: {fileID: 1224060549}
+  - component: {fileID: 1224060550}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -1687,6 +1688,19 @@ MonoBehaviour:
   fullHeart: {fileID: 21300000, guid: 1e8f16fe089b67541a63ce0acf3ca0d2, type: 3}
   emptyHeart: {fileID: 21300000, guid: 34a913cd9246be042b16639ec751a701, type: 3}
   checkpoint: {fileID: 205332630}
+--- !u!114 &1224060550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224060543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14b4ed4302e61a6458c341a8a0d67b54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  replayObjectPrefab: {fileID: 639424709399960678, guid: 047cb9854fc890f44862e32c9ceea252, type: 3}
 --- !u!1 &1291544003
 GameObject:
   m_ObjectHideFlags: 0
