@@ -26,6 +26,7 @@ public class Recorder : MonoBehaviour
         if (Input.GetButtonUp("Submit"))
         {
             StartReplay();
+            Debug.Log("Attempting replay");
         }
         
         if (Input.GetButtonUp("Cancel"))
@@ -83,6 +84,7 @@ public class Recorder : MonoBehaviour
         recordingQueue.Clear();
         recording.DestroyReplayObjectIfExists();
         recording = null;
+        Debug.Log("Resetting replay data");
     }
     
 }

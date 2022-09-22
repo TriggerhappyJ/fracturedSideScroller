@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Recording
@@ -25,7 +26,7 @@ public class Recording
         // Checks if the replay is null
         if (replayObject == null)
         {
-            Debug.LogError("Tried playing next frame but replayObject was null");
+            Debug.Log("Tried playing next frame but replayObject was null");
         }
 
         
