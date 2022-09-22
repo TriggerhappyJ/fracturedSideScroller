@@ -43,7 +43,8 @@ public class Recorder : MonoBehaviour
         // Check is replay is finished
         if (!hasMoreFrames)
         {
-            RestartReplay();
+            //RestartReplay();
+            Reset();
         }
         
     }
@@ -68,12 +69,12 @@ public class Recorder : MonoBehaviour
 
     }
 
-    private void RestartReplay()
+    /*private void RestartReplay()
     {
         isDoingReplay = true;
         // Restart replay
         recording.RestartFromBeginning();
-    }
+    }*/
 
     private void Reset()
     {

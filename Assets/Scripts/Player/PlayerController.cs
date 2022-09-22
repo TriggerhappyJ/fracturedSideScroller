@@ -125,9 +125,12 @@ public class PlayerController : MonoBehaviour
 
     private void LateUpdate()
     {
-        // Record replay data for the frame
-        ReplayData data = new PlayerReplayData(this.transform.position, isFalling, IsGrounded(), moveX != 0, isFacingRight);
-        recorder.RecordReplayFrame(data);
+        if (Input.GetKey("q"))
+        {
+            // Record replay data for the frame
+            ReplayData data = new PlayerReplayData(this.transform.position, isFalling, IsGrounded(), moveX != 0, isFacingRight);
+            recorder.RecordReplayFrame(data);
+        }
     }
 
     private void Jump()

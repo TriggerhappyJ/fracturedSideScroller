@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerReplayObject : ReplayObject
 {
-    private Animator animator;
+    private Animator animator; 
     private SpriteRenderer sr;
 
     private void Awake()
