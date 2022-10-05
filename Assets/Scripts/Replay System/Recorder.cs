@@ -21,32 +21,30 @@ public class Recorder : MonoBehaviour
     {
         // Creates a new queue to hold replay data
         recordingQueue = new Queue<ReplayData>();
-
     }
 
     private void Update()
     {
+        // Starts Replay
         if (Input.GetButtonUp("Submit"))
         {
             StartReplay();
             Debug.Log("Attempting replay");
         }
-        
-        if (Input.GetButtonUp("Cancel"))
-        {
-            Reset();
-        }
 
-        if (Input.GetKeyUp("e"))
+        // Pauses replay if replay is playing
+        if (Input.GetKeyUp("e") && isDoingReplay)
         {
             replayPaused = !replayPaused;
+            Debug.Log("Pausing Replay");
         }
-
+        
         if (!isDoingReplay)
         {
             return;
         }
 
+        // Plays next frames of replay if not paused
         if (!replayPaused)
         {
             hasMoreFrames = recording.PlayNextFrame();
@@ -82,7 +80,6 @@ public class Recorder : MonoBehaviour
         
         // instantiate replay object
         recording.InstantiateReplayObject(replayObjectPrefab);
-
     }
 
     /*private void RestartReplay()
@@ -92,16 +89,19 @@ public class Recorder : MonoBehaviour
         recording.RestartFromBeginning();
     }*/
 
-    private void Reset()
+    public void Reset()
     {
-        isDoingReplay = false;
         replayPaused = false;
-        
         // Clean up recorder
         recordingQueue.Clear();
-        recording.DestroyReplayObjectIfExists();
+        if (isDoingReplay)
+        {
+            recording.DestroyReplayObjectIfExists();
+        }
+        isDoingReplay = false;
         recording = null;
         Debug.Log("Resetting replay data");
     }
+
     
 }

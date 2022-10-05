@@ -125,6 +125,11 @@ public class PlayerController : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (Input.GetKeyDown("q"))
+        {
+            recorder.Reset();
+        }
+        
         if (Input.GetKey("q"))
         {
             // Record replay data for the frame
