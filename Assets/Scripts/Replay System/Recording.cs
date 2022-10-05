@@ -9,6 +9,7 @@ public class Recording
     public ReplayObject replayObject { get; private set; }
     private Queue<ReplayData> originalQueue;
     private Queue<ReplayData> replayQueue;
+    private bool replayPaused;
 
     public Recording(Queue<ReplayData> recordingQueue)
     {
@@ -29,7 +30,6 @@ public class Recording
             Debug.Log("Tried playing next frame but replayObject was null");
         }
 
-        
         bool hasMoreFrames = false;
         if (replayQueue.Count != 0)
         {

@@ -13,12 +13,15 @@ public class Recorder : MonoBehaviour
     private Recording recording;
     
     // Checks if replay is active
-    private bool isDoingReplay = false;
+    private bool isDoingReplay;
+    public bool replayPaused;
+    private bool hasMoreFrames;
 
     private void Awake()
     {
         // Creates a new queue to hold replay data
         recordingQueue = new Queue<ReplayData>();
+
     }
 
     private void Update()
@@ -34,12 +37,20 @@ public class Recorder : MonoBehaviour
             Reset();
         }
 
+        if (Input.GetKeyUp("e"))
+        {
+            replayPaused = !replayPaused;
+        }
+
         if (!isDoingReplay)
         {
             return;
         }
 
-        bool hasMoreFrames = recording.PlayNextFrame();
+        if (!replayPaused)
+        {
+            hasMoreFrames = recording.PlayNextFrame();
+        }
 
         // Check is replay is finished
         if (!hasMoreFrames)
@@ -52,6 +63,10 @@ public class Recorder : MonoBehaviour
 
     public void RecordReplayFrame(ReplayData data)
     {
+        if (replayPaused)
+        {
+            Reset();
+        }
         recordingQueue.Enqueue(data);
     }
 
@@ -80,6 +95,8 @@ public class Recorder : MonoBehaviour
     private void Reset()
     {
         isDoingReplay = false;
+        replayPaused = false;
+        
         // Clean up recorder
         recordingQueue.Clear();
         recording.DestroyReplayObjectIfExists();

@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1321168899136762492}
-  - component: {fileID: 6698755442425410049}
   - component: {fileID: 7598093293094027799}
   - component: {fileID: 3954290072649542750}
-  m_Layer: 3
+  - component: {fileID: 6353655181946016917}
+  m_Layer: 6
   m_Name: PlayerReplayObject
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -35,22 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &6698755442425410049
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 639424709399960678}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.009005427, y: -0.11835712}
-  m_Size: {x: 0.63334227, y: 0.75827456}
-  m_Direction: 0
 --- !u!95 &7598093293094027799
 Animator:
   serializedVersion: 4
@@ -83,6 +67,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eba5e7283911ab4cab73c834a068700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &6353655181946016917
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639424709399960678}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.000000074505806, y: -0.12358254}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6727675, y: 0.7373922}
+  m_EdgeRadius: 0
 --- !u!1 &8868654180440578546
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,7 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6128179277069437872}
   - component: {fileID: 7249430185723104560}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: PlayerSprite
   m_TagString: Player
   m_Icon: {fileID: 0}
