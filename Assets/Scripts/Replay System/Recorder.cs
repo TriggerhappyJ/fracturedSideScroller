@@ -30,7 +30,7 @@ public class Recorder : MonoBehaviour
         statusAnim.SetBool("isPlaying", isDoingReplay);
         statusAnim.SetBool("isPaused", replayPaused);
         // Starts Replay
-        if (Input.GetButtonUp("Submit"))
+        if (Input.GetKeyUp("e"))
         {
             if (replayPaused == false && !isDoingReplay)
             {

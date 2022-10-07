@@ -1,10 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+using UnityEngine;
 
-public class MainMenu : MonoBehaviour
+public class SceneChanger : MonoBehaviour
 {
     [SerializeField] private string selectedLevel;
 
@@ -12,10 +12,18 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(selectedLevel);
     }
-
+    
     public void QuitGame()
     {
         Application.Quit();
         Debug.Log("Quit Game!");
+    }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Cancel"))
+        {
+            QuitGame();
+        }
     }
 }
