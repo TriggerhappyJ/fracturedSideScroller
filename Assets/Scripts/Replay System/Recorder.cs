@@ -28,17 +28,19 @@ public class Recorder : MonoBehaviour
         // Starts Replay
         if (Input.GetButtonUp("Submit"))
         {
-            StartReplay();
-            Debug.Log("Attempting replay");
+            if (replayPaused == false && !isDoingReplay)
+            {
+                StartReplay();
+                Debug.Log("Attempting replay");
+            }
+            else 
+            {
+                replayPaused = !replayPaused;
+                Debug.Log("Pausing Replay");
+                this.recording.replayObject.GetComponent<BoxCollider2D>().enabled = replayPaused;
+            }
         }
 
-        // Pauses replay if replay is playing
-        if (Input.GetKeyUp("e") && isDoingReplay)
-        {
-            replayPaused = !replayPaused;
-            Debug.Log("Pausing Replay");
-        }
-        
         if (!isDoingReplay)
         {
             return;
