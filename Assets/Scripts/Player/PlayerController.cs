@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     // Stores core references
     private Rigidbody2D rbody;
     private Animator anim;
+    [SerializeField] private Animator statusAnim;
     private CapsuleCollider2D coll2D;
 
     // Stores movement speed
@@ -128,6 +129,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown("q"))
         {
             recorder.Reset();
+            statusAnim.SetBool("isRecording", true);
+        }
+
+        if (Input.GetKeyUp("q"))
+        {
+            statusAnim.SetBool("isRecording", false);
         }
         
         if (Input.GetKey("q"))

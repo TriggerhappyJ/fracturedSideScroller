@@ -17,6 +17,8 @@ public class Recorder : MonoBehaviour
     private bool replayPaused;
     private bool hasMoreFrames;
 
+    [SerializeField] private Animator statusAnim;
+    
     private void Awake()
     {
         // Creates a new queue to hold replay data
@@ -25,6 +27,8 @@ public class Recorder : MonoBehaviour
 
     private void Update()
     {
+        statusAnim.SetBool("isPlaying", isDoingReplay);
+        statusAnim.SetBool("isPaused", replayPaused);
         // Starts Replay
         if (Input.GetButtonUp("Submit"))
         {
@@ -40,6 +44,7 @@ public class Recorder : MonoBehaviour
                 this.recording.replayObject.GetComponent<BoxCollider2D>().enabled = replayPaused;
                 this.recording.replayObject.GetComponent<Animator>().enabled = !replayPaused;
             }
+            
         }
 
         if (!isDoingReplay)

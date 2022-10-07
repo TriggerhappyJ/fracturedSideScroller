@@ -1,19 +1,22 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class RecordStatus : MonoBehaviour
 {
-    [SerializeField] private Sprite stopped, recording, play, paused;
-    [SerializeField] public Image image;
+    private Animator anim;
 
-    public void ChangeImage(int state)
+    private void Awake()
     {
-        if (state == 1)
-        {
-            image.sprite = play;
-        }
+        anim = GetComponent<Animator>();
     }
+    public void UpdatePlayStatus()
+    {
+        anim.SetBool("isPaused", true);
+        anim.SetBool("isPlaying", true);
+    }
+
 }
