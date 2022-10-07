@@ -14,7 +14,7 @@ public class Recorder : MonoBehaviour
     
     // Checks if replay is active
     private bool isDoingReplay;
-    public bool replayPaused;
+    private bool replayPaused;
     private bool hasMoreFrames;
 
     private void Awake()
