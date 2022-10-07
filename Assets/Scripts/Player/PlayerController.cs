@@ -151,8 +151,8 @@ public class PlayerController : MonoBehaviour
     private bool IsGrounded()
     {
         var bounds = coll2D.bounds;
-        RaycastHit2D raycastHit = Physics2D.BoxCast(bounds.center, bounds.size, 0, Vector2.down, 0.1f, groundLayer);
-        return raycastHit.collider != null;
+        return Physics2D.CapsuleCast(bounds.center, bounds.size, CapsuleDirection2D.Vertical, 0, Vector2.down, 0.1f, groundLayer);
+        // return raycastHit.collider != null;
     }
 
     private void DirectionCheck()
