@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7417492721133463302}
   - component: {fileID: 7417492721133463303}
-  - component: {fileID: 7417492721133463300}
+  - component: {fileID: 5166885082791609526}
   - component: {fileID: 7417492721133463301}
   - component: {fileID: 7417492721133463297}
   - component: {fileID: 7417492721133463296}
@@ -59,7 +59,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!70 &7417492721133463300
+--- !u!70 &5166885082791609526
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -72,8 +72,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.009005427, y: -0.11835712}
-  m_Size: {x: 0.63334227, y: 0.75827456}
+  m_Offset: {x: -0.00085502863, y: -0.12056166}
+  m_Size: {x: 0.70692146, y: 0.7588767}
   m_Direction: 0
 --- !u!114 &7417492721133463301
 MonoBehaviour:
@@ -87,6 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f5cec7e07a5184fa88e1274fc66408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statusAnim: {fileID: 0}
   moveSpeed: 6
   jumpForce: 8
   fallThreshold: -0.1
@@ -145,6 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   replayObjectPrefab: {fileID: 639424709399960678, guid: 047cb9854fc890f44862e32c9ceea252, type: 3}
+  statusAnim: {fileID: 0}
 --- !u!1 &7417492721861422456
 GameObject:
   m_ObjectHideFlags: 0
