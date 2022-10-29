@@ -126,18 +126,18 @@ public class PlayerController : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (Input.GetKeyDown("q"))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             recorder.Reset();
             statusAnim.SetBool("isRecording", true);
         }
 
-        if (Input.GetKeyUp("q"))
+        if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             statusAnim.SetBool("isRecording", false);
         }
         
-        if (Input.GetKey("q"))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             // Record replay data for the frame
             ReplayData data = new PlayerReplayData(this.transform.position, isFalling, IsGrounded(), moveX != 0, isFacingRight);

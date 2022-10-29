@@ -13,6 +13,7 @@ public class RecordStatus : MonoBehaviour
     {
         anim = GetComponent<Animator>();
     }
+    
     public void UpdatePlayStatus()
     {
         anim.SetBool("isPaused", true);

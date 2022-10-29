@@ -44,7 +44,6 @@ public class Recorder : MonoBehaviour
                 this.recording.replayObject.GetComponent<BoxCollider2D>().enabled = replayPaused;
                 this.recording.replayObject.GetComponent<Animator>().enabled = !replayPaused;
             }
-            
         }
 
         if (!isDoingReplay)

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
-public class SceneChanger : MonoBehaviour
+public class SceneController : MonoBehaviour
 {
     [SerializeField] private string selectedLevel;
 
@@ -12,18 +12,10 @@ public class SceneChanger : MonoBehaviour
     {
         SceneManager.LoadScene(selectedLevel);
     }
-    
-    public void QuitGame()
+
+    public void LoadMainMenu()
     {
-        Application.Quit();
-        Debug.Log("Quit Game!");
+        SceneManager.LoadScene("MainMenu");
     }
 
-    private void Update()
-    {
-        if (Input.GetButtonDown("Cancel"))
-        {
-            QuitGame();
-        }
-    }
 }
