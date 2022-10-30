@@ -49,11 +49,11 @@ TagManager:
   - name: Collision
     uniqueID: 3433647519
     locked: 0
-  - name: Foreground
-    uniqueID: 2856500867
-    locked: 0
   - name: Detail
     uniqueID: 1901959845
+    locked: 0
+  - name: Foreground
+    uniqueID: 2856500867
     locked: 0
   - name: Player
     uniqueID: 201647609

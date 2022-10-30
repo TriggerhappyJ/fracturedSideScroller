@@ -10,7 +10,7 @@ public class PressurePlate : MonoBehaviour
     [SerializeField] private UnityEvent pressureEnter;
     [SerializeField] private UnityEvent pressureExit;
 
-    private void OnCollisionEnter2D(Collision2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Player"))
         {
@@ -18,7 +18,7 @@ public class PressurePlate : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D other)
+    private void OnTriggerExit2D(Collider2D col)
     {
         pressureExit.Invoke();
     }

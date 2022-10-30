@@ -6,32 +6,62 @@ using UnityEngine;
 
 public class SlidingDoor : MonoBehaviour
 {
-    [SerializeField] private Vector3 closedPosition;
-    [SerializeField] private Vector3 openDistance;
-    [SerializeField] private float openSpeed;
-    private bool opening;
+    // Positions
+    public Vector3 closePosition;
+    public Vector3 openPosition;
 
-    public void Open()
+    // Timing
+    public float duration = 1.2f;
+
+    // Start is called before the first frame update
+    void Start()
     {
-        opening = true;
+        closePosition = transform.position;
     }
 
-
-    public void Close()
+    public void OpenDoor()
     {
-        transform.localPosition = new Vector3(0, 0, 0);
-        opening = false;
+        StartCoroutine(Co_OpenDoor());
     }
 
-    private void Update()
+    public void CloseDoor()
     {
-        if (opening)
+        StartCoroutine(Co_CloseDoor());
+    }
+
+    IEnumerator Co_OpenDoor()
+    {
+        // this is the method variable we use to track the progress of the lerp
+        float timeElapsed = 0f;
+
+        while (timeElapsed < duration)
         {
-            transform.localPosition = Vector3.Slerp(closedPosition, openDistance, Time.deltaTime*openSpeed);
+            transform.position = Vector3.Lerp(closePosition,closePosition + openPosition, timeElapsed / duration);
+            timeElapsed += Time.deltaTime;
+
+            // This tells the coroutine to run the while loop again
+            yield return null;
         }
-        else if (!opening)
+
+        // once we're done with the loop, we force the final position just in case
+        transform.position = closePosition + openPosition;
+    }
+    
+    IEnumerator Co_CloseDoor()
+    {
+        // this is the method variable we use to track the progress of the lerp
+        float timeElapsed = 0f;
+
+        while (timeElapsed < duration)
         {
-            transform.localPosition = Vector3.Slerp(openDistance, closedPosition , Time.deltaTime*openSpeed);
+            transform.position = Vector3.Lerp(closePosition + openPosition,closePosition, timeElapsed / duration);
+            timeElapsed += Time.deltaTime;
+
+            // This tells the coroutine to run the while loop again
+            yield return null;
         }
+
+        // once we're done with the loop, we force the final position just in case
+        transform.position = closePosition;
     }
 }
