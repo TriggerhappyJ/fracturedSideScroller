@@ -48,6 +48,8 @@ public class Recording
             ReplayData startingData = replayQueue.Peek();
             this.replayObject = Object.Instantiate(replayObjectPrefab, startingData.position, quaternion.identity)
                 .GetComponent<ReplayObject>();
+            replayObject.GetComponent<BoxCollider2D>().enabled = true;
+            replayObject.GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 
