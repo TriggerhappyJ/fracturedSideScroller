@@ -14,10 +14,9 @@ public class PaperContainer : MonoBehaviour
         paperCount = GameObject.FindGameObjectsWithTag("PaperCollectable").Length;
     }
 
-    // Draw hearts on screen and set them to correct sprite (half heart, full heart etc)
+    // Draw paper on screen and set them to correct sprite
     private void DrawPaper()
     {
-        // Create current hearts based of current health
         for(var i = 0; i < _papers.Count; i++)
         {
             var paperStatusRemainder = (float)Mathf.Clamp(ItemManager.paperCount - (i*2), 0, 2) + 0.99f;
@@ -34,7 +33,7 @@ public class PaperContainer : MonoBehaviour
         _papers.Add(paperComponent);
     }
 
-    // Remove all hearts
+    // Remove all paper on ui
     private void ClearPaper()
     {
         foreach(Transform t in transform)
@@ -44,14 +43,13 @@ public class PaperContainer : MonoBehaviour
         }
     }
 
-    // Draw hearts on startup
+    // Draw paper on startup
     private IEnumerator Start()
     {
         yield return new WaitForFixedUpdate();
             
         ClearPaper();
-
-        // Create all hearts to be empty before adding full ones based off max health
+        
         for(var i = 0; i < (int)paperCount; i++)
         {
             FullPaper();
