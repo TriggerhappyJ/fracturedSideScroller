@@ -19,7 +19,7 @@ public class PaperContainer : MonoBehaviour
     {
         for(var i = 0; i < _papers.Count; i++)
         {
-            var paperStatusRemainder = (float)Mathf.Clamp(ItemManager.paperCount - (i*2), 0, 2) + 0.99f;
+            var paperStatusRemainder = (float)Mathf.Clamp(ItemManager.paperCount - (i*2), 0, 1) + 0.99f;
             _papers[i].SetPaper((PaperStatus)paperStatusRemainder);
         }
     }
@@ -60,7 +60,7 @@ public class PaperContainer : MonoBehaviour
 
     public void incrementPaperCount()
     {
-        paperCount++;
+        paperCount += 2;
         DrawPaper();
     }
 }

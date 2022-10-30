@@ -14,7 +14,7 @@ public class ItemManager : MonoBehaviour
         if (col.gameObject.CompareTag("PaperCollectable"))
         {
             Destroy(col.gameObject);
-            paperCount++;
+            paperCount += 2;
             Debug.Log(paperCount);
             collectPaper.Invoke();
         }

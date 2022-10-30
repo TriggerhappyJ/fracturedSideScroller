@@ -8,6 +8,7 @@ TagManager:
   - Hazard
   - SceneTrigger
   - PaperCollectable
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
